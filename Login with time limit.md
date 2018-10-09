@@ -30,6 +30,8 @@ if(isset($_POST['login'])){
     $shidden  = $_POST['shidden'];
     $_SESSION['status'] = $shidden ;
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
 //code for free user
 
     $q = mysqli_query($con , "select timestamp from registeruser where username = '$name' AND user_duration = '' ");
@@ -57,6 +59,8 @@ if(isset($_POST['login'])){
                }
      }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
 // code for one week user 
 
 if(isset($_POST['login'])){           
@@ -83,6 +87,9 @@ $sevendaysuser = date('Y-m-d H:i:s', strtotime($regddate . ' +7 days'));
                }
 
         }
+        
+  //-----------------------------------------------------------------------------------------------------------------------------------
+
 
 // code for one monty user
 
@@ -111,6 +118,9 @@ $onemonthuser = date('Y-m-d H:i:s', strtotime($regddate1 . ' +1 month'));
                         }
                }
     }
+    
+//-----------------------------------------------------------------------------------------------------------------------------------
+    
 
 //code for one year user
 
