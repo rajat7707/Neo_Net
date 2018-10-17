@@ -8,8 +8,6 @@ include_once('dbcon.php');
 
 $query = mysqli_query($con , "select * from registeruser");
 $res = mysqli_fetch_array($query);
-$userid = $res['id'];
-$_SESSION['userid'] = $userid ;
 
 // distroying session to stop user to access pages with out login
 
@@ -20,6 +18,7 @@ if(isset($user)){
      echo "<script> alert('you  are not Login !! please Login') </script>";
      echo "<script>window.location = 'login.php '</script>";
    }
+//-----------------------------------------------------------------------------------------------------------------------------------
 
 if(isset($_POST['login'])){
 
@@ -30,11 +29,10 @@ if(isset($_POST['login'])){
     $shidden  = $_POST['shidden'];
     $_SESSION['status'] = $shidden ;
 
-//-----------------------------------------------------------------------------------------------------------------------------------
 
 //code for free user
 
-    $q = mysqli_query($con , "select timestamp from registeruser where username = '$name' AND user_duration = '' ");
+    $q = mysqli_query($con , "select timestamp from registeruser where username = '$name' AND user_duration = 'guest user' ");
     $arr = mysqli_fetch_array($q);
     date_default_timezone_set('Asia/kolkata');
     $regd = $arr['timestamp'];
